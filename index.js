@@ -100,7 +100,10 @@ module.exports = function (b, opts) {
 
 				aliases[alias] = transformFilePath;
 
-				if (noExtAlias[1])
+				if (!noExtAlias)
+					log('Error getting extension of file: ', relativePath, alias);
+
+				if (noExtAlias && noExtAlias[1])
 					aliases[noExtAlias[1]] = transformFilePath;
 
 				log('Found: ', transformFilePath);
